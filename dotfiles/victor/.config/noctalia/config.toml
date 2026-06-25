@@ -1,0 +1,35 @@
+[include]
+files = [
+    "~/.config/noctalia/shell.toml",
+    "~/.config/noctalia/osd.toml",
+    "~/.config/noctalia/lockscreen.toml",
+    "~/.config/noctalia/keybind.toml",
+]
+
+[shell.session.power]
+suspend = "sudo -n zzz"
+reboot = "sudo -n reboot"
+shutdown = "sudo -n poweroff"
+
+[shell.session]
+actions = []
+
+# # Example: reorder, disable reboot, custom suspend, override lock
+# [[shell.session.actions]]
+# action = "lock"
+# command = "swaylock -f"
+#
+# [[shell.session.actions]]
+# action = "logout"
+# enabled = true
+#
+# [[shell.session.actions]]
+# action = "command"
+# label = "Sleep"
+# glyph = "bedtime"
+# command = "systemctl suspend"
+#
+# [[shell.session.actions]]
+# action = "shutdown"
+# variant = "destructive"
+# countdown_seconds = 5
