@@ -17,13 +17,16 @@
 
     inputs = {
         nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-        nur.url = "github:nix-community/NUR";
         home-manager = {
             url = "github:nix-community/home-manager";
             inputs.nixpkgs.follows = "nixpkgs";
         };
         noctalia = {
-            url = "github:noctalia-dev/noctalia";
+            url = "github:noctalia-dev/noctalia/cachix";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
+        noctalia-greeter = {
+            url = "github:noctalia-dev/noctalia-greeter";
             inputs.nixpkgs.follows = "nixpkgs";
         };
     };
@@ -35,14 +38,14 @@
             modules = [
                 ./hosts/thinkpad/default.nix
                 ./modules/base.nix
-                ./modules/nix.nix
                 ./modules/network.nix
                 ./modules/security.nix
                 ./modules/power.nix
                 ./modules/shell.nix
                 ./modules/desktop_shell.nix
                 ./modules/app.nix
-                ./modules/misc.nix
+                ./modules/dev.nix
+                ./modules/input.nix
                 home-manager.nixosModules.home-manager
                 {
                     home-manager.useGlobalPkgs = true;

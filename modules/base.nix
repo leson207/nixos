@@ -2,22 +2,25 @@
 
 {
     boot.loader.systemd-boot.enable = true;
-    boot.loader.systemd-boot.configurationLimit = 3;  # keep last 10 generations
-    boot.loader.efi.canTouchEfiVariables = false;       # false since you share ESP with Arch                                                   # true would let NixOS control boot order
+    boot.loader.systemd-boot.configurationLimit = 5;
+    boot.loader.efi.canTouchEfiVariables = false;       # false since you share ESP with Arch, true would let NixOS control boot order
 
     boot.kernelParams = [
         "rw"
-        "modprobe.blacklist=radeon,amdgpu"   # same as your Arch options
+        "modprobe.blacklist=radeon,amdgpu"
     ];
 
     hardware.cpu.intel.updateMicrocode = true;      
 
     boot.initrd.kernelModules = [ "i915" ];
 
+    hardware.bluetooth.enable = true;
+
     hardware.graphics = {
         enable = true;
 
         extraPackages = with pkgs; [
+            mesa
             intel-media-driver
         ];
     };

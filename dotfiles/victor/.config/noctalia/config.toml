@@ -1,35 +1,42 @@
-[include]
-files = [
-    "~/.config/noctalia/shell.toml",
-    "~/.config/noctalia/osd.toml",
-    "~/.config/noctalia/lockscreen.toml",
-    "~/.config/noctalia/keybind.toml",
-]
+[shell]
+polkit_agent = true
 
-[shell.session.power]
-suspend = "sudo -n zzz"
-reboot = "sudo -n reboot"
-shutdown = "sudo -n poweroff"
+[weather]
+enabled = true
 
-[shell.session]
-actions = []
+[location]
+auto_locate = true
 
-# # Example: reorder, disable reboot, custom suspend, override lock
-# [[shell.session.actions]]
-# action = "lock"
-# command = "swaylock -f"
-#
-# [[shell.session.actions]]
-# action = "logout"
-# enabled = true
-#
-# [[shell.session.actions]]
-# action = "command"
-# label = "Sleep"
-# glyph = "bedtime"
-# command = "systemctl suspend"
-#
-# [[shell.session.actions]]
-# action = "shutdown"
-# variant = "destructive"
-# countdown_seconds = 5
+[nightlight]
+enabled = true
+
+[lockscreen]
+enabled = true
+
+[lockscreen_widgets]
+enabled = true
+
+[idle.behavior.lock]
+timeout = 600
+action = "lock"
+enabled = true
+
+[idle.behavior.screen-off]
+timeout = 660
+action = "screen_off"
+enabled = true
+
+[idle.behavior.suspend]
+timeout = 900
+action = "lock_and_suspend" # or action = "suspend" with lock_before_suspend = false
+
+[battery]
+warning_threshold = 20
+
+[bar.default]
+margin_ends = 50
+margin_edge = 10
+margin_opposite_edge = 5
+start  = ["launcher", "wallpaper", "workspaces", "media"]
+center = ["clock"]
+end    = ["tray", "notifications", "clipboard", "volume", "brightness", "battery", "network", "session"]

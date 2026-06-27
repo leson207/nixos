@@ -47,6 +47,7 @@ bindkey '^[[B' history-substring-search-down
 
 # Evals
 eval "$(atuin init zsh)"
+eval "$(direnv hook zsh)"
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
 

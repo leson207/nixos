@@ -1,6 +1,16 @@
 { config, inputs, pkgs, lib, ... }:
 
 {
+    imports = [
+        inputs.noctalia-greeter.nixosModules.default
+    ];
+
+    programs.noctalia-greeter = {
+        enable = true;
+        package = inputs.noctalia-greeter.packages.${pkgs.stdenv.hostPlatform.system}.default;
+    };
+
+
     programs.niri.enable = true;
     programs.xwayland.enable = true;
 
