@@ -17,8 +17,6 @@
     i18n.defaultLocale = "en_US.UTF-8";
     i18n.extraLocaleSettings.LC_TIME = "vi_VN";
 
-    services.gvfs.enable=true;
-
     services.fstrim = {
         enable = true;
         interval = "weekly";
@@ -31,7 +29,6 @@
     # $ nix search wget
     environment.systemPackages = with pkgs; [
         neovim
-	    firefox
         #  wget
     ];
 

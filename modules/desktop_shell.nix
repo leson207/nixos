@@ -10,7 +10,6 @@
         package = inputs.noctalia-greeter.packages.${pkgs.stdenv.hostPlatform.system}.default;
     };
 
-
     programs.niri.enable = true;
     programs.xwayland.enable = true;
 
@@ -27,8 +26,14 @@
     #     compositor.name="niri";
     # };
 
+    environment.sessionVariables = {
+        GDK_BACKEND="wayland,x11";
+
+        _JAVA_AWT_WM_NONREPARENTING="1";
+        ELECTRON_OZONE_PLATFORM_HINT="auto";
+    };
+
     environment.systemPackages = with pkgs; [
-        qt6.qtwayland
         fuzzel
         app2unit
 
@@ -44,7 +49,5 @@
         config.common.default = "gtk";
     };
 
-    environment.sessionVariables = {
-        APP2UNIT_SLICES = "a=app-graphical.slice b=background-graphical.slice s=session-graphical.slice";
-    };
+
 }

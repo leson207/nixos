@@ -13,6 +13,10 @@
     };
 
     environment.systemPackages = with pkgs; [
+        texinfo
+        man-pages
+        man-pages-posix
+
         uv
         gcc
         gdb

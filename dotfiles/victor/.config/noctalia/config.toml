@@ -35,7 +35,7 @@ warning_threshold = 20
 
 [bar.default]
 margin_ends = 50
-margin_edge = 10
+margin_edge = 0
 margin_opposite_edge = 5
 start  = ["launcher", "wallpaper", "workspaces", "media"]
 center = ["clock"]

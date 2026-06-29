@@ -1,4 +1,4 @@
-zmodload zsh/zprof
+# zmodload zsh/zprof
 
 # History
 HISTSIZE=100000
@@ -9,20 +9,20 @@ setopt SHARE_HISTORY HIST_IGNORE_ALL_DUPS HIST_REDUCE_BLANKS
 source ~/.local/share/zinit/zinit.zsh
 
 # Completions plugin (before compinit)
-zinit ice blockf
-zinit light zsh-users/zsh-completions
+# zinit ice blockf
+# zinit light zsh-users/zsh-completions
 
 # Initialize completion system
-zmodload zsh/complist
-autoload -Uz compinit
+# zmodload zsh/complist
+# autoload -Uz compinit
 # compinit -C -d ~/.cache/zsh/zcompdump
 
 # zstyle (safe anywhere, but keep near compinit for readability)
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
-zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
-zstyle ':completion:*' squeeze-slashes true
-zstyle ':completion:*' use-cache yes
-zstyle ':completion:*' cache-path ~/.cache/zsh
+# zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+# zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+# zstyle ':completion:*' squeeze-slashes true
+# zstyle ':completion:*' use-cache yes
+# zstyle ':completion:*' cache-path ~/.cache/zsh
 
 # Plugins
 zinit light zsh-users/zsh-autosuggestions
@@ -60,4 +60,4 @@ alias ls='eza --icons'
 
 # [[ -n "$TERM" ]] && fastfetch
 
-zprof
+# zprof
